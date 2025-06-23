@@ -1,0 +1,10 @@
+std_msgs/Header header
+
+geometry_msgs/Vector3 position
+geometry_msgs/Vector3 orientation_rpy
+geometry_msgs/Vector3 angular_speed
+geometry_msgs/Vector3 linear_speed
+geometry_msgs/Vector3 linear_accel
+geometry_msgs/Vector3 linear_jerk
+
+bool is_position_stable
