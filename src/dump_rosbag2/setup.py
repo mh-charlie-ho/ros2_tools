@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'dump_rosbag2_pc2'
+package_name = 'dump_rosbag2'
 
 setup(
     name=package_name,
