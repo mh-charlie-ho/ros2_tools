@@ -22,7 +22,7 @@ def run_pipeline(bag_path: str, bag_type: str, target_dir: str, topics: list):
     converter.convert()
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(
         description="Batch convert ROS2 bags to .npy and .feather"
     )
@@ -60,3 +60,7 @@ if __name__ == "__main__":
     ):
         bag_path = os.path.join(args.bag_dir, fname)
         run_pipeline(bag_path, args.bag_type, args.target_dir, args.topics)
+
+
+if __name__ == "__main__":
+    main()

@@ -49,7 +49,7 @@ class DumpToPkl:
                 pbar.update(1)
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description="Dump bag to .pkl")
 
     parser.add_argument(
@@ -79,3 +79,6 @@ if __name__ == "__main__":
     dumper = DumpToPkl(args.topics, args.target_dir)
     dumper.get_bag_info_without_conversion(args.bag_path, args.bag_type)
     dumper.dump()
+
+if __name__ == "__main__":
+    main()

@@ -57,7 +57,7 @@ class DumpPC2ToNpy:
                 pbar.update(1)
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(
         description="Dump PointCloud2 data from ROS2 bag to .npy"
     )
@@ -89,3 +89,7 @@ if __name__ == "__main__":
     dumper = DumpPC2ToNpy(args.topics, args.target_dir)
     dumper.get_bag_info_without_conversion(args.bag_path, args.bag_type)
     dumper.dump()
+
+
+if __name__ == "__main__":
+    main()
