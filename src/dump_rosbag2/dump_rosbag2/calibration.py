@@ -48,7 +48,7 @@ class Calibration:
         result_table = pa.table(output_dict)
         output_path = os.path.splitext(file)[0] + "_aligned_unique.feather"
         feather.write_feather(result_table, output_path)
-        print(f"✅ Saved result with {result_table.num_rows} rows to {output_path}")
+        print(f"Saved result with {result_table.num_rows} rows to {output_path}")
 
 
 if __name__ == "__main__":
