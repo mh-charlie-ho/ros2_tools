@@ -2,8 +2,8 @@ import os
 import argparse
 from tqdm import tqdm
 
-from dump_pc2_to_npy import DumpPC2ToNpy
-from convert_npy_to_feather import NpyToFeather
+from dump_rosbag2.dump_pc2_to_npy import DumpPC2ToNpy
+from dump_rosbag2.convert_npy_to_feather import NpyToFeather
 
 
 def run_pipeline(bag_path: str, bag_type: str, target_dir: str, topics: list):

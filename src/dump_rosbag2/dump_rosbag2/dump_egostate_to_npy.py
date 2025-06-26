@@ -8,8 +8,6 @@ from custom_interfaces.msg import CarMotionState
 import pyarrow as pa
 import pyarrow.feather as feather
 
-import dump_rosbag2.util.util as uu
-
 
 def euler_to_quaternion(roll, pitch, yaw):
     cr = np.cos(roll * 0.5)
@@ -146,8 +144,7 @@ def main():
 
     dumper = DumpEgoStateTofeather(args.bag_dir, args.bag_type, args.topic, args.target_dir)
     dumper.run()
-    uu.printHi()
-
+    
 
 if __name__ == "__main__":
     main()
