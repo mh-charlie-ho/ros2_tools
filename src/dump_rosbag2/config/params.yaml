@@ -1,0 +1,16 @@
+batch_convert_pc2_pipeline:
+    bag_dir: /charlie_ws/conversion_bag/itri-around
+    bag_type: mcap
+    topics:
+        - /lidar/ouster_top/no_ground
+    target_dir: /charlie_ws/conversion_bag/itri-around/itri-around-processed
+
+merge_files:
+    pattern: /charlie_ws/conversion_bag/itri-around/itri-around-processed/*/feather/**.feather
+    target_dir: /charlie_ws/conversion_bag/itri-around-test/sensors/lidar
+
+convert_ego:
+    bag_dir: /charlie_ws/conversion_bag/itri-around
+    bag_type: mcap
+    topic: /localization/car_motion_state
+    target_dir: /charlie_ws/conversion_bag/itri-around-test
