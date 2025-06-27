@@ -54,6 +54,6 @@ class Calibration:
 if __name__ == "__main__":
     calibration = Calibration()
     calibration.alignment(
-        "/data/charlie/BagMonster/Dataset/bag_cache/rosbag2_2025_05_21-18_55_10_0/sensors/lidar",
-        "/data/charlie/BagMonster/Dataset/bag_cache/rosbag2_2025_05_21-18_55_10_0/city_SE3_egovehicle_origin.feather",
+        "/charlie_ws/conversion_bag/itri-around-test/sensors/lidar",
+        "/charlie_ws/conversion_bag/itri-around-test/ego_state_origin.feather",
     )

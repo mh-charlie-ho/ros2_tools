@@ -52,7 +52,7 @@ class DumpPC2ToNpy:
                 ]
                 np_points = np.array(points, dtype=np.float32)
 
-                filename = f"{self.target_dir}/pc2_{topic_id}_{timestamp}.npy"
+                filename = f"{self.target_dir}/{timestamp}.npy"
                 np.save(filename, np_points)
                 pbar.update(1)
 

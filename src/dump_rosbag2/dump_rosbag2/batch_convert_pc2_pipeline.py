@@ -23,9 +23,7 @@ def run_pipeline(bag_path: str, bag_type: str, target_dir: str, topics: list):
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Batch convert ROS2 bags to .npy and .feather"
-    )
+    parser = argparse.ArgumentParser(description="Batch convert ROS2 bags to .npy and .feather")
     parser.add_argument(
         "--bag-dir",
         type=str,
@@ -55,9 +53,7 @@ def main():
 
     bag_files = [f for f in os.listdir(args.bag_dir) if f.endswith(f".{args.bag_type}")]
 
-    for fname in tqdm(
-        bag_files, total=len(bag_files), desc="Processing bags", unit=" bag"
-    ):
+    for fname in tqdm(bag_files, total=len(bag_files), desc="Processing bags", unit=" bag"):
         bag_path = os.path.join(args.bag_dir, fname)
         run_pipeline(bag_path, args.bag_type, args.target_dir, args.topics)
 

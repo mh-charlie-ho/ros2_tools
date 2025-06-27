@@ -97,7 +97,7 @@ class DumpEgoStateTofeather:
                 "tz_m": np_data[:, 7],
             }
         )
-        output_path = os.path.join(self.target_dir, "ego_state.feather")
+        output_path = os.path.join(self.target_dir, "ego_state_origin.feather")
         feather.write_feather(table, output_path)
         print("save to feather!")
 
