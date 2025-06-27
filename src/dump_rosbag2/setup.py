@@ -12,7 +12,9 @@ setup(
     data_files=[
         ("share/ament_index/resource_index/packages", ["resource/" + package_name]),
         ("share/" + package_name, ["package.xml"]),
-        (os.path.join('share', package_name, 'scripts'), glob('scripts/*')),
+        (os.path.join("share", package_name, "scripts"), glob("scripts/*")),
+        (os.path.join("share", package_name, "config"), glob("config/*")),
+        (os.path.join("share", package_name, "launch"), glob("launch/*")),
     ],
     install_requires=["setuptools"],
     zip_safe=True,
@@ -29,6 +31,7 @@ setup(
             "convert_npy_to_feather = dump_rosbag2.convert_npy_to_feather:main",
             "batch_convert_pc2_pipeline = dump_rosbag2.batch_convert_pc2_pipeline:main",
             "calibration = dump_rosbag2.calibration:main",
+            "merge_files = dump_rosbag2.merge_files:main",
         ],
     },
 )
