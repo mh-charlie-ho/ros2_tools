@@ -1,12 +1,29 @@
 FROM ros:humble-ros-base
+SHELL ["/bin/bash", "-c"]
 
+RUN sed -i '/set -e/d' /ros_entrypoint.sh
 RUN rm -f /etc/apt/sources.list.d/ros2-latest.list && \
     apt update && \
-    apt install -y curl gnupg lsb-release vim python3-pip && \
+    apt install -y curl gnupg lsb-release vim python3-pip sudo && \
     curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | gpg --dearmor -o /usr/share/keyrings/ros2-archive-keyring.gpg && \
     echo "deb [signed-by=/usr/share/keyrings/ros2-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2.list && \
     apt update && \
-    apt install -y ros-humble-sensor-msgs-py && \
+    apt install -y ros-humble-sensor-msgs-py ros-humble-rosbag2-storage-mcap && \
+    apt clean && rm -rf /var/lib/apt/lists/* && \
     pip3 install tqdm pandas pyarrow
 
+RUN groupadd -g 1000 user && \
+    useradd -m -u 1000 -g 1000 -s /bin/bash user && \
+    usermod -aG sudo user && \
+    echo "user ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/user && \
+    chmod 0440 /etc/sudoers.d/user && \
+    echo '' >> /home/user/.bashrc && \
+    echo '# Set container prompt' >> /home/user/.bashrc && \
+    echo 'export PS1="(container) $PS1"' >> /home/user/.bashrc && \
+    chown user:user /home/user/.bashrc
+
+ENV TERM xterm-256color
+USER user
+
+WORKDIR /
 CMD ["bash"]
