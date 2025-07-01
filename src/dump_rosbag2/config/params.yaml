@@ -1,16 +1,19 @@
+# folder_name: itri-around
+# folder_name: basketball
+
 batch_convert_pc2_pipeline:
-    bag_dir: /charlie_ws/conversion_bag/itri-around
+    bag_dir: /data/charlie/BagMonster/Dataset/itri-scene-flow/bag/basketball
     bag_type: mcap
     topics:
         - /lidar/ouster_top/no_ground
-    target_dir: /charlie_ws/conversion_bag/itri-around/itri-around-processed
+    target_dir: /data/charlie/BagMonster/Dataset/itri-scene-flow/proc_bag/basketball
 
-merge_files:
-    pattern: /charlie_ws/conversion_bag/itri-around/itri-around-processed/*/feather/**.feather
-    target_dir: /charlie_ws/conversion_bag/itri-around-test/sensors/lidar
-
-convert_ego:
-    bag_dir: /charlie_ws/conversion_bag/itri-around
+dump_egostate_to_npy:
+    bag_dir: /data/charlie/BagMonster/Dataset/itri-scene-flow/bag/basketball
     bag_type: mcap
     topic: /localization/car_motion_state
-    target_dir: /charlie_ws/conversion_bag/itri-around-test
+    target_dir: /data/charlie/BagMonster/Dataset/itri-scene-flow/proc_bag/basketball
+
+merge_files:
+    pattern: /data/charlie/BagMonster/Dataset/itri-scene-flow/proc_bag/basketball/ouster_top_no_ground/feather/**.feather
+    target_dir: /data/charlie/BagMonster/Dataset/itri-scene-flow/proc_bag/basketball/test/00002-no-ground/sensors/lidar
