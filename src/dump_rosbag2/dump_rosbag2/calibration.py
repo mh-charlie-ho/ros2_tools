@@ -51,9 +51,13 @@ class Calibration:
         print(f"Saved result with {result_table.num_rows} rows to {output_path}")
 
 
-if __name__ == "__main__":
+def main():
     calibration = Calibration()
     calibration.alignment(
-        "/charlie_ws/conversion_bag/itri-around-test/sensors/lidar",
-        "/charlie_ws/conversion_bag/itri-around-test/ego_state_origin.feather",
+        "/data/charlie/BagMonster/Dataset/itri-scene-flow/proc_bag/basketball/test/00002-no-ground/sensors/lidar",
+        "/data/charlie/BagMonster/Dataset/itri-scene-flow/proc_bag/basketball/test/ego_state_origin.feather",
     )
+"city_SE3_egovehicle"
+
+if __name__ == "__main__":
+    main()
