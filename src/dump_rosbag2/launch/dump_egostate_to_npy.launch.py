@@ -27,10 +27,10 @@ def generate_launch_description():
     config = get_config_file()
     params = load_yaml_file(config)
 
-    bag_dir = params["convert_ego"]["bag_dir"]
-    bag_type = params["convert_ego"]["bag_type"]
-    topic = params["convert_ego"]["topic"]
-    target_dir = params["convert_ego"]["target_dir"]
+    bag_dir = params["dump_egostate_to_npy"]["bag_dir"]
+    bag_type = params["dump_egostate_to_npy"]["bag_type"]
+    topic = params["dump_egostate_to_npy"]["topic"]
+    target_dir = params["dump_egostate_to_npy"]["target_dir"]
 
     dump_egostate_to_npy = ExecuteProcess(
             cmd=[
